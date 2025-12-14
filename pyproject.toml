@@ -1,0 +1,39 @@
+[build-system]
+requires = [
+  "setuptools>=68",
+  "wheel",
+  "packaging",
+  "torch>=2.1",
+]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "trackformer"
+version = "0.1.0"
+description = "TrackFormer with CUDA-accelerated Multi-Scale Deformable Attention"
+requires-python = ">=3.10"
+license = { text = "Apache-2.0" }
+
+dependencies = [
+  "numpy>=1.26",
+  "torch>=2.1",
+  "torchvision>=0.16",
+  "packaging>=23.0",
+  "pyyaml>=6.0",
+  "tqdm>=4.66",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=7.4",
+  "ruff",
+  "mypy",
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+packages = { find = { where = ["src"] } }
+
+[tool.setuptools.package-data]
+trackformer = ["**/*.so"]
+
